@@ -1,0 +1,12 @@
+<h1>Welcome to Stack Overflow</h1>
+
+<% if @questions.any? %>
+<h4>Stack Overflow Questions:</h4>
+<% @questions.each do |question| %>
+<ul>
+  <li><%= link_to question.body, user_question_path(@user, question) %></li>
+</ul>
+<% end %>
+<% end %>
+
+<%= link_to "Add New Question", new_user_question_path(@user), :class => "btn btn-success" %>

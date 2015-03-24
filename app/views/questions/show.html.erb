@@ -1,0 +1,21 @@
+<h3>Current question: <em><%= @question.body %></em></h3>
+
+
+<% if @question.answers.any? %>
+  <% @question.answers.each do |answer| %>
+<ul>
+  <li><%= answer.body %></li>
+</ul>
+  <% end %>
+<% else %>
+<p>
+  Currently there are no answers.  Add one!
+</p>
+<% end %>
+
+<h5>Add an answer to this question!</h5>
+<%= form_for [@question, @answer] do |f| %>
+  <%=f.text_field :body %>
+
+  <%= f.submit "Submit", class: 'btn-btn-primary' %>
+<% end %>

@@ -1,0 +1,7 @@
+<h1> New Question </h1>
+
+<%= form_for [@user, @question] do |f| %>
+<%= f.text_area :body, rows: 10 %>
+
+<%= f.submit "Submit", class: 'btn-btn-info' %>
+<% end %>
