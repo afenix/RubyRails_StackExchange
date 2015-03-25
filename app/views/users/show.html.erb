@@ -1,11 +1,15 @@
 <h4>Welcome <%= @user.name %></h4>
 
-<%= link_to "New Question", new_user_question_path(@user) %>
-
 <% if @user.questions.any? %>
+  <h5>Here are your questions:</h5>
   <% @user.questions.each do |question| %>
   <ul>
     <li><%= link_to question.body, user_question_path(@user, question) %></li>
   </ul>
   <% end %>
 <% end %>
+
+<%= link_to "New Question", new_user_question_path(@user), :class => "btn btn-primary" %>
+
+
+<%= link_to "<= Back Home", users_path, :class => "btn btn-info" %>

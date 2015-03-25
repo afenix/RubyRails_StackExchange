@@ -22,7 +22,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @user = User.find(params[:user_id])
     @answer = @question.answers.new
   end
 

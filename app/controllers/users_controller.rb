@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+    
       flash[:notice] = "User has been added!"
       redirect_to users_path
     else
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
 
   def update
   end
-
 
 
   private

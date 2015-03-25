@@ -1,11 +1,12 @@
 <h3>Current question: <em><%= @question.body %></em></h3>
+<h5>Asked by: <%= @question.user.name %></h5>
 
 
 <% if @question.answers.any? %>
   <% @question.answers.each do |answer| %>
-<ul>
-  <li><%= answer.body %></li>
-</ul>
+    <ul>
+      <li><%= answer.body %></li>
+    </ul>
   <% end %>
 <% else %>
 <p>
@@ -13,8 +14,8 @@
 </p>
 <% end %>
 
-<h5>Add an answer to this question!</h5>
-<%= form_for [@question, @answer] do |f| %>
+<h6>Add an answer to this question</h6>
+<%= bootstrap_form_for [@question, @answer] do |f| %>
   <%=f.text_field :body %>
 
   <%= f.submit "Submit", class: 'btn-btn-primary' %>
